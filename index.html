@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Проверка сайта через iframe</title>
+</head>
+<body>
+  <h1>Проверка сайта через iframe</h1>
+  
+  <form onsubmit="loadWebsite(); return false;">
+    <label for="url">URL:</label>
+    <input type="text" id="url" placeholder="Введите URL" required>
+    <button type="submit">Загрузить сайт</button>
+  </form>
+  
+  <h2>Результат:</h2>
+  <div id="result"></div>
+  
+  <script>
+    function loadWebsite() {
+      var url = document.getElementById('url').value;
+      var resultDiv = document.getElementById('result');
+      
+      var iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.style.width = '100%';
+      iframe.style.height = '500px';
+      
+      resultDiv.innerHTML = '';
+      resultDiv.appendChild(iframe);
+    }
+  </script>
+</body>
+</html>
